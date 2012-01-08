@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>PasteList</title>
+    <link rel="stylesheet" type="text/css" href="sp://import/css/adam.css">
+    <link rel="stylesheet" type="text/css" href="sp://import/css/api.css">
+    <link rel="stylesheet" type="text/css" href="css/pastelist.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/pastelist.js"></script>
+  </head>
+
+  <body>
+    <h1>PasteList</h1>
+    <p class="instructions">Enter a list of songs, one per line.</p>
+    <textarea id="pastebox" class="stretch" tabindex="1"></textarea>
+    <div class="controls">
+      <button id="search" class="sp-button sp-primary" tabindex="2">
+        Find 'em all
+      </button>
+    </div>
+    <div id="results" class="results round"></div>
+    <div class="controls">
+      <button id="add-playlist" class="sp-button sp-icon" tabindex="3">
+        <span class="sp-plus">&nbsp;</span>
+        Add as Playlist
+      </button>
+    </div>
+
+    <div id="overlay" class="overlay hidden">
+      <form id="prompt" class="prompt round" action="#">
+        <label for="playlist-name">What shall we call the playlist?</label>
+        <input id="playlist-name" class="stretch round" type="text" />
+        <div class="controls">
+          <button id="cancel" type="reset" class="sp-button">
+            Cancel
+          </button>
+          <button id="submit" type="submit" class="sp-button sp-primary">
+            Create
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

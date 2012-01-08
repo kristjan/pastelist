@@ -1,0 +1,69 @@
+body {
+  padding: 20px;
+}
+.stretch {
+  width: 100%;
+  box-sizing: border-box;
+}
+h1 {
+  margin-bottom: 10px;
+  font-size: 36px;
+  line-height: 40px;
+  text-align: center;
+  text-shadow: 1px 1px #000;
+}
+div {
+  margin: 10px 0;
+}
+p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+textarea {
+  display: block;
+  padding: 5px 10px;
+  height: 200px;
+  font-size: 16px;
+  overflow-y: auto;
+}
+.controls {
+  text-align: right;
+  margin-top: 5px;
+}
+.results {
+  height: 300px;
+  border: 1px solid #000;
+  border-color: #000 #222 #444;
+  border-width: 2px 1px;
+  overflow-y: auto;
+}
+.hidden {
+  display: none;
+}
+.round {
+  border-radius: 5px;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(100, 100, 100, .8);
+  z-index: 100;
+}
+.prompt {
+  width: 400px;
+  margin: 100px auto;
+  padding: 20px 30px;
+  background-color: #171717;
+}
+.prompt label {
+  font-size: 18px;
+}
+.prompt input {
+  margin: 10px 0;
+  padding: 5px;
+  border: none;
+  font-size: 14px;
+}
