@@ -35,7 +35,9 @@ textarea {
   border: 1px solid #000;
   border-color: #000 #222 #444;
   border-width: 2px 1px;
-  overflow-y: auto;
+}
+.sp-list {
+  height: 300px;
 }
 .hidden {
   display: none;
