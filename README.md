@@ -16,5 +16,4 @@ If you have trouble, peruse:
 
 ## Future work:
 
-* Parallel searches while maintaining track order
 * Per-song selection when there are multiple results
