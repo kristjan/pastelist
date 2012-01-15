@@ -19,7 +19,7 @@ PasteList = (function() {
   }
 
   function search() {
-    $('#search').attr('disabled', 'disabled');
+    loading(true);
     lines = $('#pastebox').val().replace(/[-_]/g, ' ').split("\n");
     var songs = $.grep(lines, function(line, i) {
       return (line.match(/^\s*$/) === null);
@@ -75,7 +75,7 @@ PasteList = (function() {
     $.each(searchResults, function(i, result) {
       addTrack(result[1]);
     });
-    search.removeAttr('disabled');
+    loading(false);
   }
 
   function addTrack(track) {
