@@ -3,6 +3,8 @@ PasteList = (function() {
   $.getJSON('data/adjectives.json', function(r) { ADJECTIVES = r; });
   $.getJSON('data/nouns.json', function(r) { NOUNS = r; });
 
+  var searchesPending;
+  var searchResults;
   var currentPlaylist;
 
   var Spotify = getSpotifyApi(1);
@@ -29,24 +31,55 @@ PasteList = (function() {
     $('#results').append(list.node);
   }
 
-  function findSongs(songs) {
-    if (songs.length == 0) {
-      $('#search').removeAttr('disabled');
-      return;
+  function loading(flag) {
+    var search = $('#search');
+    if (flag) {
+      search.attr('disabled', 'disabled');
+      search.siblings('.throbber').css('opacity', 1);
+    } else {
+      search.siblings('.throbber').css('opacity', 0);
+      search.removeAttr('disabled');
     }
+  }
 
-    var song = songs.shift();
+  function findSongs(songs) {
+    searchesPending = 0;
+    searchResults = [];
+
+    $.each(songs, function(i, song) {
+      findSong(song, i);
+    });
+  }
+
+  function findSong(song, i) {
+    searchesPending++;
     Spotify.core.search(song, {
       onSuccess : function(result) {
-        addTrack(result.tracks);
-        findSongs(songs);
+        storeResult(result.tracks, i)
+        if(--searchesPending === 0) {
+          populateList();
+        }
       }
     });
   }
 
-  function addTrack(tracks) {
-    if (tracks.length == 0) { return; }
-    currentPlaylist.add(new Model.Track(tracks[0]));
+  function storeResult(tracks, i) {
+    if (tracks.length === 0) { return; }
+    searchResults.push([i, new Model.Track(tracks[0])]);
+  }
+
+  function populateList() {
+    searchResults.sort(function(a, b) {
+      return a[0] - b[0];
+    });
+    $.each(searchResults, function(i, result) {
+      addTrack(result[1]);
+    });
+    search.removeAttr('disabled');
+  }
+
+  function addTrack(track) {
+    currentPlaylist.add(new Model.Track(track));
   }
 
   function addPlaylist() {
