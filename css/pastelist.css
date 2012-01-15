@@ -37,8 +37,22 @@ textarea {
   background: transparent;
   opacity: 0;
 }
-.loading .throbber {
-  opacity: 1;
+.controls .popover.inverted.flipped {
+  padding-right: 0px;
+  padding-bottom: 10px;
+  position: absolute;
+  top: -135px;
+  right: -10px;
+  left: auto;
+  font-size: 14px;
+  line-height: 20px;
+}
+.controls .popover label {
+  color: #666;
+}
+.controls .popover input {
+  font-size: 14px;
+  padding: 3px;
 }
 .results {
   height: 300px;
@@ -54,28 +68,4 @@ textarea {
 }
 .round {
   border-radius: 5px;
-}
-.overlay {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(100, 100, 100, .8);
-  z-index: 100;
-}
-.prompt {
-  width: 400px;
-  margin: 100px auto;
-  padding: 20px 30px;
-  background-color: #171717;
-}
-.prompt label {
-  font-size: 18px;
-}
-.prompt input {
-  margin: 10px 0;
-  padding: 5px;
-  border: none;
-  font-size: 14px;
 }

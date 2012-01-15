@@ -94,13 +94,13 @@ PasteList = (function() {
   }
 
   function showNamePrompt(name) {
-    $('#overlay').fadeIn(150);
+    $('#prompt').removeClass('hidden');
     $('#playlist-name').val(name).focus().select();
   }
 
   function hideNamePrompt(evt) {
     if (typeof(evt) !== 'undefined') { evt.preventDefault(); }
-    $('#overlay').fadeOut(150);
+    $('#prompt').addClass('hidden');
   }
 
   function createPlaylist(evt) {
